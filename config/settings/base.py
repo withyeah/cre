@@ -63,13 +63,13 @@ COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
 # APPS
 # ------------------------------------------------------------------------------
 DJANGO_APPS = [
-    'collectfast',
     "maps.apps.MapsConfig",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.sites",
     "django.contrib.messages",
+    'collectfast',
     "django.contrib.staticfiles",
     # "django.contrib.humanize", # Handy template tags
     "django.contrib.admin",
