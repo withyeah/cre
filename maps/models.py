@@ -21,7 +21,7 @@ class Gu(models.Model):
     gu_area = models.FloatField()
 
 class Dong(models.Model):
-    dong_code = models.IntegerField(primary_key=True)
+    dong_code = models.BigIntegerField(primary_key=True)
     dong_name = models.TextField()
     dong_name_en = models.TextField()
     gu_code = models.IntegerField()
