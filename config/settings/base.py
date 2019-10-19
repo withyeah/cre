@@ -4,17 +4,17 @@ Base settings to build other settings files upon.
 
 import environ
 
-ROOT_DIR = (
+BASE_DIR = (
     environ.Path(__file__) - 3
 )  # (api_test/config/settings/base.py - 3 = api_test/)
-APPS_DIR = ROOT_DIR.path("api_test")
+APPS_DIR = BASE_DIR.path("api_test")
 
 env = environ.Env()
 
 READ_DOT_ENV_FILE = env.bool("DJANGO_READ_DOT_ENV_FILE", default=False)
 if READ_DOT_ENV_FILE:
     # OS environment variables take precedence over variables from .env
-    env.read_env(str(ROOT_DIR.path(".env")))
+    env.read_env(str(BASE_DIR.path(".env")))
 
 # GENERAL
 # ------------------------------------------------------------------------------
@@ -36,7 +36,7 @@ USE_L10N = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#use-tz
 USE_TZ = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#locale-paths
-LOCALE_PATHS = [ROOT_DIR.path("locale")]
+LOCALE_PATHS = [BASE_DIR.path("locale")]
 
 # DATABASES
 # ------------------------------------------------------------------------------
@@ -140,7 +140,7 @@ MIDDLEWARE = [
 # STATIC
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-root
-STATIC_ROOT = str(ROOT_DIR("staticfiles"))
+STATIC_ROOT = str(BASE_DIR("staticfiles"))
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-url
 STATIC_URL = "/static/"
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
