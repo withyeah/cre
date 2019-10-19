@@ -63,13 +63,11 @@ COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
 # APPS
 # ------------------------------------------------------------------------------
 DJANGO_APPS = [
-    "maps.apps.MapsConfig",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.sites",
     "django.contrib.messages",
-    'collectfast',
     "django.contrib.staticfiles",
     # "django.contrib.humanize", # Handy template tags
     "django.contrib.admin",
@@ -82,14 +80,17 @@ THIRD_PARTY_APPS = [
     "rest_framework",
     "drf_yasg",
     "storages",
+    'collectfast',
 ]
 
 LOCAL_APPS = [
     "api_test.users.apps.UsersConfig",
     # Your stuff: custom apps go here
+    "maps.apps.MapsConfig",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
-INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+# INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+INSTALLED_APPS = LOCAL_APPS + THIRD_PARTY_APPS + DJANGO_APPS
 
 # MIGRATIONS
 # ------------------------------------------------------------------------------
