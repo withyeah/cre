@@ -88,7 +88,8 @@ class StaticRootS3Boto3Storage(S3Boto3Storage):
 # STATIC
 # ------------------------
 # STATICFILES_STORAGE = "config.settings.production.StaticRootS3Boto3Storage"
-STATICFILES_STORAGE = 'my_project.storage.WhiteNoiseStaticFilesStorage'
+# STATICFILES_STORAGE = 'my_project.storage.WhiteNoiseStaticFilesStorage'
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 STATIC_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/static/"
 # MEDIA
 # ------------------------------------------------------------------------------
