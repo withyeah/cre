@@ -150,7 +150,6 @@ ANYMAIL = {
 # https://github.com/antonagestam/collectfast#installation
 
 ###Collectfast
-STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
 
 INSTALLED_APPS = ["collectfast"] + INSTALLED_APPS  # noqa F405
