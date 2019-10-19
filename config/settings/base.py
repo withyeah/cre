@@ -54,9 +54,16 @@ ROOT_URLCONF = "config.urls"
 # https://docs.djangoproject.com/en/dev/ref/settings/#wsgi-application
 WSGI_APPLICATION = "config.wsgi.application"
 
+
+###Collectfast
+STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
+
+
 # APPS
 # ------------------------------------------------------------------------------
 DJANGO_APPS = [
+    'collectfast',
     "maps.apps.MapsConfig",
     "django.contrib.auth",
     "django.contrib.contenttypes",
