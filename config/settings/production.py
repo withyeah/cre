@@ -79,7 +79,6 @@ AWS_DEFAULT_ACL = None
 AWS_S3_REGION_NAME = env("DJANGO_AWS_S3_REGION_NAME", default=None)
 
 from storages.backends.s3boto3 import S3Boto3Storage  # noqa E402
-from django.contrib.staticfiles.storage import ManifestStaticFilesStorage
 
 class StaticRootS3Boto3Storage(S3Boto3Storage):
     location = "static"
@@ -88,7 +87,7 @@ class StaticRootS3Boto3Storage(S3Boto3Storage):
 # STATIC
 # ------------------------
 # STATICFILES_STORAGE = "config.settings.production.StaticRootS3Boto3Storage"
-STATICFILES_STORAGE = ManifestStaticFilesStorage()
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATIC_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/static/"
 
 #test
@@ -208,5 +207,5 @@ LOGGING = {
 
 # Your stuff...
 # ------------------------------------------------------------------------------
-import django_heroku
-django_heroku.settings(locals())
+# import django_heroku
+# django_heroku.settings(locals())

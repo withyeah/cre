@@ -270,3 +270,5 @@ SOCIALACCOUNT_ADAPTER = "api_test.users.adapters.SocialAccountAdapter"
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+import django_heroku
+django_heroku.settings(locals())
