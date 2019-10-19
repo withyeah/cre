@@ -84,10 +84,11 @@ from storages.backends.s3boto3 import S3Boto3Storage  # noqa E402
 class StaticRootS3Boto3Storage(S3Boto3Storage):
     location = "static"
     default_acl = "public-read"
-    
+
 # STATIC
 # ------------------------
-STATICFILES_STORAGE = "config.settings.production.StaticRootS3Boto3Storage"
+# STATICFILES_STORAGE = "config.settings.production.StaticRootS3Boto3Storage"
+STATICFILES_STORAGE = 'my_project.storage.WhiteNoiseStaticFilesStorage'
 STATIC_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/static/"
 # MEDIA
 # ------------------------------------------------------------------------------
