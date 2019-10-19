@@ -77,6 +77,14 @@ AWS_S3_OBJECT_PARAMETERS = {
 AWS_DEFAULT_ACL = None
 # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
 AWS_S3_REGION_NAME = env("DJANGO_AWS_S3_REGION_NAME", default=None)
+
+from storages.backends.s3boto3 import S3Boto3Storage  # noqa E402
+
+
+class StaticRootS3Boto3Storage(S3Boto3Storage):
+    location = "static"
+    default_acl = "public-read"
+    
 # STATIC
 # ------------------------
 STATICFILES_STORAGE = "config.settings.production.StaticRootS3Boto3Storage"
@@ -85,12 +93,6 @@ STATIC_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/static/"
 # ------------------------------------------------------------------------------
 # region http://stackoverflow.com/questions/10390244/
 # Full-fledge class: https://stackoverflow.com/a/18046120/104731
-from storages.backends.s3boto3 import S3Boto3Storage  # noqa E402
-
-
-class StaticRootS3Boto3Storage(S3Boto3Storage):
-    location = "static"
-    default_acl = "public-read"
 
 
 class MediaRootS3Boto3Storage(S3Boto3Storage):
