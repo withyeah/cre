@@ -55,10 +55,6 @@ ROOT_URLCONF = "config.urls"
 WSGI_APPLICATION = "config.wsgi.application"
 
 
-###Collectfast
-STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
-COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
-
 
 # APPS
 # ------------------------------------------------------------------------------
@@ -80,7 +76,6 @@ THIRD_PARTY_APPS = [
     "rest_framework",
     "drf_yasg",
     "storages",
-    'collectfast',
 ]
 
 LOCAL_APPS = [
