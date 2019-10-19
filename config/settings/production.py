@@ -90,6 +90,10 @@ class StaticRootS3Boto3Storage(S3Boto3Storage):
 # STATICFILES_STORAGE = "config.settings.production.StaticRootS3Boto3Storage"
 STATICFILES_STORAGE = 'cote.storage.WhiteNoiseStaticFilesStorage'
 STATIC_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/static/"
+
+#test
+#delete heroku config: DISABLE_COLLECTSTATIC
+
 # MEDIA
 # ------------------------------------------------------------------------------
 # region http://stackoverflow.com/questions/10390244/
